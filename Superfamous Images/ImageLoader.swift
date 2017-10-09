@@ -33,13 +33,13 @@ class ImageLoader: NSObject {
 
         let downloader = imageDownloadConnection.remoteObjectProxyWithErrorHandler(handler) as! ImageDownloaderProtocol
 
-        downloader.downloadImageAtURL(url) { data in
+        downloader.downloadImageAtURL(url) { _data in
             DispatchQueue.global().async {
                 var image: NSImage?
                 defer {
                     completionHandler(image)
                 }
-                guard let source = CGImageSourceCreateWithData(data as! CFData, nil),
+              guard let data = _data, let source = CGImageSourceCreateWithData(data as CFData, nil),
                     let cgImage = CGImageSourceCreateImageAtIndex(source, 0, nil) else {
                         return
                 }

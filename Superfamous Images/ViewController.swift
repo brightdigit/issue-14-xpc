@@ -40,7 +40,7 @@ extension ViewController : NSTableViewDataSource, NSTableViewDelegate {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cellView = tableView.make(withIdentifier: "Image", owner: self) as! NSTableCellView
+      let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "Image"), owner: self) as! NSTableCellView
         var image: NSImage?
         if let c = imageSet?.images.count, row < c {
             image = imageSet?.images[row]

@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
     }
     @IBAction func showWebsite(_: AnyObject) {
-        NSWorkspace.shared().open(URL(string: "http://superfamous.com")!)
+      NSWorkspace.shared.open(URL(string: "http://superfamous.com")!)
     }
     
 }
